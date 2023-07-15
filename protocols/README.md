@@ -1,0 +1,2 @@
+# Protocols
+This section is relating on the actual implementation of protocols that commonly used in microservice, the examples are described in bare minimum context and all of them can be containerized to generate interprocess call for microservices.

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package ecommerce;
+
+// Product entity
+message Product {
+  int32 id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+// Order entity
+message Order {
+  int32 id = 1;
+  repeated Product items = 2;
+  string customer_name = 3;
+  string address = 4;
+}
+
+// Service for managing orders
+service OrderService {
+  rpc CreateOrder (CreateOrderRequest) returns (Order) {}
+  rpc GetOrder (GetOrderRequest) returns (Order) {}
+}
+
+// Request for creating an order
+message CreateOrderRequest {
+  repeated Product items = 1;
+  string customer_name = 2;
+  string address = 3;
+}
+
+// Request for getting an order
+message GetOrderRequest {
+  int32 id = 1;
+}
