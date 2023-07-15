@@ -1,6 +1,8 @@
 # gRPC example
 This section is a very simple grpc example which simulates the JSON payload being transferred between server and client
 
+ gRPC is well-suited for building microservices-based architectures. It enables services to communicate with each other over the network using strongly-typed RPC (Remote Procedure Call) interfaces. gRPC's efficient binary serialization, compact payload, and bi-directional streaming capabilities make it suitable for high-throughput and low-latency communication between microservices.
+
 ## How to install
 Run the pip install on the requirements.txt to include all the necessary components
 ```

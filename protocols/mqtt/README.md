@@ -1,6 +1,8 @@
 # MQTT example
 This section is a very simple mqtt example which simulates the payload being transferred between publisher and subscriber in specific topic
 
+MQTT is a popular choice for IoT applications due to its lightweight nature, low network overhead, and support for low-power devices. It allows for efficient and reliable communication between IoT devices, sensors, and gateways, enabling real-time data exchange and control.
+
 ## How to install
 Run the pip install on the requirements.txt to include all the necessary components
 ```

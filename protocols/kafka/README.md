@@ -1,6 +1,8 @@
 # Kafka example
 This section is a very simple kafka example which simulates the JSON payload being transferred between producer and consumer in specific topic
 
+Kafka is designed for real-time event streaming and data pipeline applications. It allows for the efficient and reliable streaming of data from various sources and systems in real-time. Kafka's distributed architecture and high throughput make it suitable for scenarios where low-latency, high-volume data ingestion and processing are critical.
+
 ## How to install
 Run the pip install on the requirements.txt to include all the necessary components
 ```
