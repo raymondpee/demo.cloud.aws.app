@@ -1,0 +1,44 @@
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+     apt-get install -y \
+        build-essential \
+        cmake \
+        git \
+        wget \
+        python3 \
+        python3-pip \
+        pkg-config \
+        autoconf \
+        automake \
+        libtool \
+        cmake \
+        default-jdk \
+        unzip \ 
+        libmosquitto-dev \ 
+        pip3 install --upgrade pip && \
+        rm -rf /var/lib/apt/lists/* 
+
+RUN cd /opt/aws && \
+    wget https://d2s8p88vqu9w66.cloudfront.net/releases/greengrass-nucleus-latest.zip && \
+    unzip greengrass-nucleus-latest.zip -d GreengrassInstaller && rm greengrass-nucleus-latest.zip
+
+ENV THING_NAME=""
+ENV THING_GROUP_NAME=""
+ENV THING_POLICY_NAME=""
+ENV TES_ROLE_NAME=""
+ENV TES_ROLE_ALIAS_NAME=""
+
+CMD java -Droot="/opt/aws/greengrass/v2" -Dlog.store=FILE \
+  -jar /opt/aws/GreengrassInstaller/lib/Greengrass.jar \
+  --aws-region region \
+  --thing-name $THING_NAME \
+  --thing-group-name $THING_GROUP_NAME \
+  --thing-policy-name ${THING_POLICY_NAME} \
+  --tes-role-name ${TES_ROLE_NAME} \
+  --tes-role-alias-name ${TES_ROLE_ALIAS_NAME} \
+  --component-default-user ggc_user:ggc_group \
+  --provision true \
+  --setup-system-service true
