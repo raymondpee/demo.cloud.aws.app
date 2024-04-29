@@ -1,0 +1,22 @@
+# Use Python base image
+FROM python:3.8-slim
+
+# Set environment variables for AWS IoT Core configuration
+ENV IOT_ENDPOINT=""
+ENV IOT_PORT=8883
+ENV IOT_ROOT_CA_PATH=""
+ENV IOT_KEY_PATH=""
+ENV IOT_CERT_PATH=""
+ENV ID=""
+
+# Set working directory in the container
+WORKDIR /app
+
+# Copy the Python script and requirements file into the container
+COPY * /opt/script/
+
+# Install dependencies
+RUN pip install --no-cache-dir -r /opt/script/requirements.txt
+
+# Run the Python script with environment variables as arguments
+CMD python /opt/script/parser.py -i ${ID} -e ${IOT_ENDPOINT} -p ${IOT_PORT} -r ${IOT_ROOT_CA_PATH} -c ${IOT_CERT_PATH} -k ${IOT_KEY_PATH} -j /opt/script/parameters.json

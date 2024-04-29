@@ -1,0 +1,9 @@
+{
+    "broker": {
+        "address": "localhost",
+        "port": 1883
+    },
+    "topics": [
+        "/cam/cam0001/inference"
+    ]
+}

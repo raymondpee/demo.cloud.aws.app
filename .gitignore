@@ -1,0 +1,6 @@
+*.lock.hcl
+*.zip
+*.backup
+*.tfstate
+**/.terraform/
+**/aws-iot-auth/
